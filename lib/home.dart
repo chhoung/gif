@@ -14,6 +14,16 @@ class _HomeScreenState extends State<HomeScreen> {
     isSad = true;
   }
 
+  void toggle() {
+    setState(() {
+      if (isSad) {
+        isSad = false;
+      } else {
+        isSad = true;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,13 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: EdgeInsets.only(top: 20.0),
               child: RaisedButton(
                 onPressed: () {
-                  setState(() {
-                    if (isSad) {
-                      isSad = false;
-                    } else {
-                      isSad = true;
-                    }
-                  });
+                  toggle();
                 },
                 child: Text(
                   isSad ? 'happy boi' : 'sad boi',
